@@ -6,6 +6,7 @@ class ArtistsController < ApplicationController
 
   # show page
   get '/artists/:slug' do
+    @artist = Artist.find_by_slug(params[:slug])
 
   end
 
