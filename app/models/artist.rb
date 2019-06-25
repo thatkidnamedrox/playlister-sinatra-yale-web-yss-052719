@@ -26,7 +26,12 @@ class Artist < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    self.find_by "name.slug == ?", slug
+    self.all.each do |e|
+      if e.slug == slug
+        return e
+      end
+    end
+    return
   end
 
 end
